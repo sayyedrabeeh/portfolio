@@ -18,7 +18,8 @@ const Counter = () => {
     }
 
     const plus = () =>{
-        if (count < 10000 && count < limit1 ){
+        const max = limit1 !== 0 ? limit1 : 10000;
+        if ( count < max ){
         setCount((prev) => prev +1)
         }
        
