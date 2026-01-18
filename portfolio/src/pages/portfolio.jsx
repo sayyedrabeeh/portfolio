@@ -73,7 +73,7 @@ export default function Portfolio() {
       name: 'Full-Stack Developer Portfolio (3D + AI)',
       problem: 'Standard portfolios fail to demonstrate high-level technical creativity and interactivity.',
       role: 'Full Stack Developer',
-      stack: ['React', 'Three.js', 'Framer Motion', 'Matter.js', 'Gemini AI'],
+      stack: ['React', 'Three.js', 'Framer Motion', 'Matter.js','Python','Postgresql', 'Gemini AI'],
       features: [
         'Cinematic 3D transitions and physics-based interactions (Matter.js)',
         'Context-aware AI assistant using Gemini to answer technical queries',
@@ -102,9 +102,9 @@ export default function Portfolio() {
       }
     },
     {
-      name: 'VocalNexus – AI Automation Engine',
+      name: 'VI Assistant – AI Automation Engine',
       problem: 'Enterprise automation requires seamless bridging between speech processing and cloud-accessible web services.',
-      role: 'Backend Systems Engineer',
+      role: 'Backend Developer',
       stack: ['Python', 'Django', 'gTTS', 'SpeechRecognition'],
       features: [
         'Advanced Vocal-to-Command orchestration with real-time execution',
@@ -118,9 +118,9 @@ export default function Portfolio() {
       }
     },
     {
-      name: 'ResourceLink – Distributed Library OS',
+      name: 'Library Management System',
       problem: 'Academic institutions require high-availability systems for systematic inventory and member management.',
-      role: 'Full Stack Systems Engineer',
+      role: 'Full Stack Developer',
       stack: ['Django', 'PostgreSQL', 'Bootstrap'],
       features: [
         'High-concurrency book tracking and issuance workflows',
@@ -134,9 +134,9 @@ export default function Portfolio() {
       }
     },
     {
-      name: 'SyncPoint – Cloud Productivity Engine',
+      name: 'Task Master',
       problem: 'Modern productivity tools require low-latency state management and cross-platform synchronization.',
-      role: 'Frontend Infrastructure Engineer',
+      role: 'Frontend Developer',
       stack: ['React', 'Firebase', 'Firestore', 'Tailwind'],
       features: [
         'Low-latency state synchronization using cloud Firestore',
@@ -185,28 +185,28 @@ export default function Portfolio() {
 
   const sideProjects = [
     {
-      name: 'MediaStream – Architecture Study',
+      name: 'Netflix clone',
       type: 'Frontend',
       github: 'https://github.com/sayyedrabeeh/netflix_clone',
       live: 'https://netflix-clone-v042.onrender.com/',
       bullets: ['Dynamic content orchestration', 'Trailer system integration', 'Custom SCSS design system']
     },
     {
-      name: 'Nexus Marketplace – Distributed C2C',
-      type: 'Full Stack',
+      name: ' OLX Clone',
+      type: 'Frontend',
       github: 'https://github.com/sayyedrabeeh/OLX_clone',
       live: 'https://olxclone-663e8.web.app/',
       bullets: ['Asynchronous listing management', 'Firebase Auth security', 'Distributed image storage']
     },
     {
-      name: 'Ginee AI – Conversational Interface',
+      name: 'Dubai Ginee  – Conversational Interface',
       type: 'Streamlit/AI',
       github: 'https://github.com/sayyedrabeeh/chatbot-with-streamlit',
       live: 'https://dubaiginnee.streamlit.app/',
       bullets: ['Natural Language processing', 'Streamlit dashboard', 'Enterprise API integration']
     },
     {
-      name: 'Dynamic QR Synthesis Tool',
+      name: 'QR Maker Tool',
       type: 'Utility',
       github: 'https://github.com/sayyedrabeeh/qr-code-maker-',
       live: 'https://sayyedrabeeh.pythonanywhere.com/',
@@ -227,14 +227,14 @@ export default function Portfolio() {
       bullets: ['CRUD operations', 'Search filtering', 'Validation logic']
     },
     {
-      name: 'Spatial Interface Controller',
+      name: 'Dino  Controller',
       type: 'Applied Intelligence',
       github: 'https://github.com/sayyedrabeeh/Dino',
       live: '',
       bullets: ['Gesture-based system control', 'Real-time Computer Vision', 'Hardware sync (PyAutoGUI)']
     },
     {
-      name: 'Neural Gesture FX Simulator',
+      name: 'Dr-Strange Simulator',
       type: 'Applied Intelligence',
       github: 'https://github.com/sayyedrabeeh/dr-stange-simulator',
       live: '',
@@ -248,7 +248,7 @@ export default function Portfolio() {
       bullets: ['On-screen drawing', 'Color palette detection', 'Hand tracking']
     },
     {
-      name: 'Vocal/Gesture Automation Engine',
+      name: 'Gesture Engine',
       type: 'Applied Intelligence',
       github: 'https://github.com/sayyedrabeeh/game-controller',
       live: '',
@@ -256,14 +256,14 @@ export default function Portfolio() {
     },
     {
       name: '2D-to-3D Visualizer',
-      type: 'Three.js/AI',
+      type: 'computer vision',
       github: 'https://github.com/sayyedrabeeh/2d-to-3d-visulaizer',
       live: '',
       bullets: ['Mesh generation', 'Three.js rendering', 'Procedural geometry']
     },
     {
       name: 'Artist Portfolio',
-      type: 'Frontend',
+      type: 'computer vision',
       github: 'https://github.com/sayyedrabeeh/artist',
       live: 'https://artist-1-r68o.onrender.com/',
       bullets: ['Gallery showcase', 'Contact integration', 'Responsive design']
@@ -272,24 +272,26 @@ export default function Portfolio() {
 
   const experience = [
     {
-      title: 'Full Stack Development Residency (Brototype)',
+      title: 'Full Stack Development  (Brototype)',
       period: 'Jul 2024 – Present',
       location: 'Calicut, Kerala',
       highlights: [
-        'Intensive 1000+ hour project-based program focused on scalable web architectures.',
-        'Built 20+ production-ready applications spanning E-commerce, AI SaaS, and Real-time systems.',
-        'Mastered enterprise architecture patterns, asynchronous workflows, and distributed systems.'
+        'Intensive project-driven training focused on modern full-stack web development.',
+        'Built 20+ hands-on applications including CRUD systems, real-time chat, AI-assisted tools, and REST APIs.',
+        'Gained practical experience with Django, React, authentication, state management, and deployment workflows',
+        'Developed strong foundations in scalable backend design and frontend performance optimization.'
       ]
     },
     {
-      title: 'Technical Lead & Independent Researcher',
+      title: 'Self-Taught Full Stack Developer',
       period: '2023 – Present',
       location: 'Remote',
       highlights: [
-        'Advanced specialized knowledge in Full Stack Engineering and high-performance computing.',
-        'Active contributor to algorithmic research and complex data structure optimizations.',
-        'Engineered 10+ open-source utilities focusing on Computer Vision and AI integration.'
-      ]
+    'Independently learned full stack development through consistent hands-on practice and real-world projects.',
+    'Designed and built multiple full-stack applications using Django, React, REST APIs, and PostgreSQL.',
+    'Implemented authentication systems, role-based access control, real-time features, and media uploads.',
+    'Continuously improved problem-solving skills by debugging production issues and refactoring code for scalability.'
+  ]
     }
   ];
 
