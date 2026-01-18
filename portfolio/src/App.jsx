@@ -1,6 +1,6 @@
 import { useState } from 'react'
 // import Counter from './pages/Counter'
-import Portfolio from './pages/recu';
+import Portfolio from './pages/portfolio';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
  

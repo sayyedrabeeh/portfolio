@@ -1,416 +1,568 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Download, Menu, X, Briefcase } from 'lucide-react';
+import { 
+  Mail, Phone, MapPin, Github, Linkedin, Download, Menu, X, 
+  ExternalLink, Code, Terminal, Database, Cpu, Globe, Layers,
+  Trophy, User, Send, ChevronRight, Award, Zap, Star
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [projectFilter, setProjectFilter] = useState('major');
 
-  const coreCompetencies = [
-    'Python', 'Django', 'Django REST Framework', 'React.js', 'PostgreSQL',
-    'MongoDB', 'Redis', 'Machine Learning', 'Computer Vision', 'AWS'
-  ];
-
-  const technicalSkills = {
-    'Backend Development': ['Python', 'Django', 'Django REST Framework', 'Flask', 'FastAPI', 'Node.js'],
-    'Frontend Development': ['React.js', 'JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS'],
-    'Database Management': ['PostgreSQL', 'MongoDB', 'MySQL', 'SQLite', 'Redis'],
-    'AI & Machine Learning': ['OpenCV', 'TensorFlow', 'Scikit-learn', 'Computer Vision', 'NLP', 'MediaPipe'],
-    'DevOps & Cloud': ['AWS', 'Docker', 'Git', 'GitHub', 'Linux', 'CI/CD'],
-    'Development Tools': ['Postman', 'VS Code', 'Jupyter', 'Figma', 'Agile/Scrum']
+  const skills = {
+    'Programming Languages': ['Python', 'JavaScript (ES6+)', 'SQL'],
+    'Frameworks & Libraries': ['Django', 'Django REST Framework', 'React.js', 'Redux', 'Streamlit'],
+    'Backend Technologies': ['Django Channels', 'WebSockets', 'Redis', 'Celery', 'JWT'],
+    'Frontend Technologies': ['Tailwind CSS', 'Framer Motion', 'Three.js', 'Bootstrap', 'Matter.js', 'Semantic UI'],
+    'Databases': ['PostgreSQL', 'Firebase'],
+    'DevOps / Tools': ['Git', 'GitHub', 'AWS', 'Render', 'Cloudinary', 'VS Code', 'Figma', 'PythonAnywhere'],
+    'AI / ML': ['Google Gemini API', 'OpenCV', 'MediaPipe', 'gTTS', 'PyMuPDF']
   };
 
-  const professionalMetrics = [
-    { value: '10+', label: 'Applications Developed' },
-    { value: '5+', label: 'API Integrations' },
-    { value: '95%', label: 'Code Quality Score' },
-    { value: '100%', label: 'On-Time Delivery' }
+  const majorProjects = [
+    {
+      name: 'NanoRide',
+      problem: 'E-commerce niche for collectibles often lacks professional-grade inventory and payment workflows.',
+      role: 'Full Stack Developer',
+      stack: ['Django', 'PostgreSQL', 'Razorpay', 'Cloudinary', 'Redis'],
+      features: [
+        'Razorpay integration with wallet systems and automated refunds',
+        'Advanced multi-variant product filtering and real-time inventory management',
+        'Admin dashboard with PDF/Excel analytics reporting'
+      ],
+      impact: 'Built a robust e-commerce engine handling secure transactions and complex product variations.',
+      links: {
+        github: 'https://github.com/sayyedrabeeh/NanoRide--Miniature-Cars-E-commerse_Platform',
+        live: 'https://nanoride-miniature-cars-e-commerse.onrender.com/'
+      }
+    },
+    {
+      name: 'TaleTailor',
+      problem: 'Long-form story generation lacks emotional depth and real-time collaborative features.',
+      role: 'System Architect',
+      stack: ['Django', 'Channels', 'Redis', 'Celery', 'Gemini AI'],
+      features: [
+        'AI-driven narrative engine generating up to 8,000 words',
+        'Real-time collaborative editing using WebSockets',
+        'Emotion-driven UI system with synchronized background audio'
+      ],
+      impact: 'Created a highly immersive storytelling environment with concurrent editing capabilities.',
+      links: {
+        github: 'https://github.com/sayyedrabeeh/taletailor',
+        live: 'https://taletailor.onrender.com/'
+      }
+    },
+    {
+      name: 'ResuMatch',
+      problem: 'Recruiters struggle to parse and manage unstructured resume data securely.',
+      role: 'Lead Developer',
+      stack: ['React', 'Django REST', 'PostgreSQL', 'PyMuPDF'],
+      features: [
+        'Automated PDF parsing to extract contact info and skills',
+        'Secure multi-resume upload pipeline with JWT authentication',
+        'Normalized social link extraction for profile consistency'
+      ],
+      impact: 'Streamlined candidate intake by automating data extraction from unstructured formats.',
+      links: {
+        github: 'https://github.com/sayyedrabeeh/resume-ai-',
+        live: 'https://resume-ai-1-q2lm.onrender.com/'
+      }
+    },
+    {
+      name: 'Netflix Clone',
+      problem: 'Developing high-performance streaming interfaces with dynamic content delivery.',
+      role: 'Frontend Developer',
+      stack: ['React', 'TMDB API', 'Firebase', 'CSS3'],
+      features: [
+        'Smooth horizontal scrolling and dynamic trailer previews',
+        'Real-time data fetching from TMDB with category filtering',
+        'Responsive layout optimized for multiple device profiles'
+      ],
+      impact: 'Demonstrated proficiency in building polished, high-traffic consumer interfaces.',
+      links: {
+        github: 'https://github.com/sayyedrabeeh/netflix_clone',
+        live: 'https://netflix-clone-v042.onrender.com/'
+      }
+    },
+    {
+      name: '3D AI Portfolio',
+      problem: 'Static portfolios fail to showcase technical creativity and interactivity.',
+      role: 'Lead Developer',
+      stack: ['React', 'Three.js', 'Framer Motion', 'Gemini AI'],
+      features: [
+        'Cinematic 3D transitions and physics-based interactions',
+        'Context-aware AI assistant using Gemini API',
+        'Interactive skills playground with Matter.js'
+      ],
+      impact: 'Showcased cross-disciplinary mastery of WebGL, AI, and modern React patterns.',
+      links: {
+        github: 'https://github.com/sayyedrabeeh/Full-Stack-Developer-Portfolio-with-3D-Animations-and-AI-Integration',
+        live: 'https://portfolio-fronted-static.onrender.com/'
+      }
+    },
+    {
+      name: 'OLX Clone',
+      problem: 'Implementing secure C2C marketplaces with real-time listing updates.',
+      role: 'Full Stack Developer',
+      stack: ['React', 'Firebase', 'Firestore', 'Tailwind'],
+      features: [
+        'User-to-user listing management with real-time search',
+        'Firebase Authentication and secure image storage',
+        'Location-based product filtering'
+      ],
+      impact: 'Built a scalable classifieds platform handling dynamic asset management.',
+      links: {
+        github: 'https://github.com/sayyedrabeeh/OLX_clone',
+        live: 'https://olxclone-663e8.web.app/'
+      }
+    },
+    {
+      name: 'Nexus Blog App',
+      problem: 'Creating content platforms with robust role-based access and analytics.',
+      role: 'Backend Developer',
+      stack: ['Django', 'Class-Based Views', 'PostgreSQL', 'Bootstrap'],
+      features: [
+        'Advanced CRUD for posts with rich text editor integration',
+        'Subscriber management and comment moderation system',
+        'Dynamic analytics dashboard for post reach'
+      ],
+      impact: 'Built a professional content machine focused on clean architectural patterns.',
+      links: {
+        github: 'https://github.com/sayyedrabeeh/nexus-blog-cbv-',
+        live: 'https://nexus-blog-cbv.onrender.com/'
+      }
+    },
+    {
+      name: 'Jarvis AI Web',
+      problem: 'Porting complex voice assistant logic to a scalable web interface.',
+      role: 'Lead Developer',
+      stack: ['Python', 'Django', 'gTTS', 'SpeechRecognition'],
+      features: [
+        'Voice-to-command processing with instant web action execution',
+        'Dynamic response generation using custom Python logic',
+        'Clean, minimal dashboard for interaction history'
+      ],
+      impact: 'Successfully bridged local automation scripts with cloud-accessible web services.',
+      links: {
+        github: 'https://github.com/sayyedrabeeh/jarvis-ai',
+        live: 'https://jarvis-ai-2nfc.onrender.com/'
+      }
+    }
   ];
 
-  const projects = [
-    {
-      title: 'AI Sketch Studio',
-      role: 'Full Stack Developer',
-      duration: '2024',
-      description: 'Developed an enterprise-grade image transformation platform featuring 14 distinct artistic rendering algorithms with real-time computer vision processing.',
-      achievements: [
-        'Architected scalable Django REST API handling 1000+ concurrent requests',
-        'Implemented 14 real-time image processing algorithms using OpenCV',
-        'Optimized processing pipeline reducing latency by 40%',
-        'Designed responsive UI with Tailwind CSS achieving 95+ Lighthouse score'
-      ],
-      technologies: ['Django', 'OpenCV', 'Python', 'REST API', 'PostgreSQL', 'Tailwind CSS'],
-      github: 'https://github.com/sayyedrabeeh/artist'
-    },
-    {
-      title: 'ResuMatch - AI Resume Analyzer',
-      role: 'Full Stack Developer',
-      duration: '2024',
-      description: 'Built comprehensive AI-powered recruitment platform utilizing NLP for resume parsing, ATS optimization scoring, and intelligent job matching.',
-      achievements: [
-        'Developed full-stack application using Django backend and React frontend',
-        'Integrated NLP models achieving 90%+ accuracy in keyword extraction',
-        'Implemented ATS scoring algorithm processing 500+ resumes',
-        'Designed normalized PostgreSQL schema with optimized indexing'
-      ],
-      technologies: ['Django', 'React', 'PostgreSQL', 'NLP', 'Machine Learning', 'Redux'],
-      github: 'https://github.com/sayyedrabeeh/resume-ai-'
-    },
-    {
-      title: 'Jarvis - Virtual Assistant Platform',
-      role: 'Backend Developer',
-      duration: '2024',
-      description: 'Created sophisticated web-based virtual assistant with multi-service API integration, voice recognition, and real-time query processing.',
-      achievements: [
-        'Architected Django backend integrating Spotify, YouTube, and Wikipedia APIs',
-        'Implemented voice recognition with 85%+ accuracy rate',
-        'Developed caching mechanism reducing API response time by 60%',
-        'Built real-time processing system handling 100+ concurrent users'
-      ],
-      technologies: ['Django', 'Python', 'REST APIs', 'Redis', 'JavaScript', 'Web Scraping'],
-      github: 'https://github.com/sayyedrabeeh/jarvis-ai'
-    },
-    {
-      title: 'Virtual Painter',
-      role: 'Computer Vision Developer',
-      duration: '2024',
-      description: 'Engineered advanced gesture-based drawing application utilizing computer vision algorithms for real-time hand tracking at 60 FPS.',
-      achievements: [
-        'Implemented real-time hand gesture recognition using MediaPipe',
-        'Optimized CV pipeline achieving consistent 60 FPS performance',
-        'Developed intuitive gesture mapping with 95%+ recognition accuracy',
-        'Created efficient canvas rendering engine with minimal latency'
-      ],
-      technologies: ['Python', 'OpenCV', 'MediaPipe', 'Computer Vision', 'NumPy'],
-      github: 'https://github.com/sayyedrabeeh/virtual-painter'
-    },
-    {
-      title: 'TaleTailor - Content Generation Platform',
-      role: 'Full Stack Developer',
-      duration: '2024',
-      description: 'Built AI-powered storytelling platform with automated content generation, authentication system, and social networking features.',
-      achievements: [
-        'Developed scalable full-stack application with Django and React',
-        'Integrated AI models for automated story generation',
-        'Implemented JWT-based authentication with role-based access control',
-        'Optimized database queries reducing page load time by 50%'
-      ],
-      technologies: ['Django', 'React', 'PostgreSQL', 'AI/ML', 'JWT', 'AWS S3'],
-      github: 'https://github.com/sayyedrabeeh/taletailor'
-    }
+  const miniProjects = [
+    { name: 'Artist Showcase', type: 'Frontend', link: 'https://artist-1-r68o.onrender.com/', github: 'https://github.com/sayyedrabeeh/artist' },
+    { name: 'Task Manager Pro', type: 'Full Stack', link: 'https://todo-task-manager-7630b.web.app/', github: 'https://github.com/sayyedrabeeh/T_o_D_o-task-manager-' },
+    { name: 'Dubai Ginnee AI', type: 'Streamlit/AI', link: 'https://dubaiginnee.streamlit.app/', github: 'https://github.com/sayyedrabeeh/chatbot-with-streamlit' },
+    { name: 'Contact Management', type: 'React/SemanticUI', link: 'https://contact-app-94c8a.web.app/login', github: 'https://github.com/sayyedrabeeh/contact_app-react-semantic-ui' },
+    { name: 'Library MS', type: 'Backend', link: 'https://library-management-system-jewe.onrender.com/', github: 'https://github.com/sayyedrabeeh/LibraryMS' },
+    { name: 'QR Code Engine', type: 'Utility', link: 'https://sayyedrabeeh.pythonanywhere.com/', github: 'https://github.com/sayyedrabeeh/qr-code-maker-' },
+    { name: 'Woodora Portfolio', type: 'Business', link: 'https://woodora-interior-design-bussiness.onrender.com/', github: 'https://github.com/sayyedrabeeh/woodora-interior-design-bussiness-portfolio' },
+    { name: 'Todo Evolution', type: 'Frontend', link: 'https://sayyedrabeeh.github.io/TodoApp-in-React/', github: 'https://github.com/sayyedrabeeh/TodoApp-in-React' },
+    { name: 'User Directory', type: 'Utility', link: '', github: 'https://github.com/sayyedrabeeh/users-managment' },
+    { name: 'Dino CV Controller', type: 'OpenCV/AI', link: '', github: 'https://github.com/sayyedrabeeh/Dino' },
+    { name: 'Dr Strange Sim', type: 'OpenCV/MediaPipe', link: '', github: 'https://github.com/sayyedrabeeh/dr-stange-simulator' },
+    { name: 'Virtual Painter', type: 'Computer Vision', link: '', github: 'https://github.com/sayyedrabeeh/virtual-painter' },
+    { name: 'CV Game Controller', type: 'MediaPipe/AI', link: '', github: 'https://github.com/sayyedrabeeh/game-controller' },
+    { name: '2D-to-3D Visualizer', type: 'Three.js/AI', link: '', github: 'https://github.com/sayyedrabeeh/2d-to-3d-visulaizer' }
   ];
 
   const experience = [
     {
-      title: 'Full Stack Developer',
-      company: 'Freelance / Contract',
-      location: 'Remote',
-      period: 'January 2024 - Present',
-      responsibilities: [
-        'Design and develop custom web applications using Django, React, and modern JavaScript frameworks',
-        'Implement AI/ML solutions including computer vision and NLP features for client projects',
-        'Build and maintain RESTful APIs with comprehensive documentation using OpenAPI standards',
-        'Deploy and manage applications on AWS infrastructure with Docker containerization',
-        'Conduct code reviews and implement CI/CD pipelines for automated testing and deployment',
-        'Collaborate with clients to gather requirements and deliver scalable, maintainable solutions'
+      title: 'Full Stack Development Residency (Brototype)',
+      period: 'Jul 2024 – Present',
+      location: 'Calicut, Kerala',
+      highlights: [
+        'Intensive 1000+ hour project-based program focused on scalable web architectures.',
+        'Built 20+ production-ready applications spanning E-commerce, AI SaaS, and Real-time systems.',
+        'Mastered advanced state management, asynchronous processing, and cloud deployment.'
       ]
     },
     {
-      title: 'Full Stack Development Bootcamp',
-      company: 'Brototype',
-      location: 'Kerala, India',
-      period: 'May 2023 - December 2023',
-      responsibilities: [
-        'Completed intensive 1000+ hour full-stack development program covering Python, Django, and React',
-        'Developed 10+ production-ready applications following industry best practices',
-        'Mastered data structures, algorithms, and software design patterns through hands-on projects',
-        'Gained expertise in test-driven development, Git workflows, and Agile methodologies',
-        'Participated in code reviews and pair programming sessions with peers',
-        'Built strong foundation in database design, API development, and cloud deployment'
+      title: 'Self-Driven Technical Mastery',
+      period: '2023 – Present',
+      location: 'Remote',
+      highlights: [
+        'Successfully transitioned from a Humanities background to Full Stack Engineering through rigorous self-study.',
+        'Active LeetCode problem solver focused on algorithmic efficiency and data structures.',
+        'Developed a deep understanding of Computer Vision (OpenCV) and AI integration (Gemini).'
       ]
     }
   ];
 
-  const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Make sure resume.pdf is in public folder
-    link.download = 'Sayyed_Rabeeh_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 font-sans">
+    <div className="min-h-screen bg-gray-950 text-gray-100 font-sans selection:bg-blue-500/30">
       {/* Navigation */}
-      <nav className="bg-gray-800 border-b border-gray-700 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <Briefcase className="text-blue-400" size={26} />
-              <span className="text-2xl font-bold text-gray-100">Sayyed Rabeeh</span>
-            </div>
+      <nav className="fixed w-full z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex justify-between items-center h-20">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="flex items-center space-x-2"
+            >
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl">S</div>
+              <span className="text-xl font-bold tracking-tight">Rabeeh<span className="text-blue-500">.dev</span></span>
+            </motion.div>
 
-            <div className="hidden md:flex space-x-10">
-              {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item) => (
+            <div className="hidden md:flex space-x-8">
+              {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-gray-300 hover:text-blue-400 font-medium transition-colors duration-200"
+                  className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
                 >
                   {item}
                 </a>
               ))}
             </div>
 
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-gray-300"
+            <div className="flex items-center space-x-4">
+              <a href="https://github.com/sayyedrabeeh" target="_blank" rel="noreferrer" className="p-2 text-gray-400 hover:text-white transition-colors">
+                <Github size={20} />
+              </a>
+              <a href="https://linkedin.com/in/sayyed-rabeeh" target="_blank" rel="noreferrer" className="p-2 text-gray-400 hover:text-white transition-colors">
+                <Linkedin size={20} />
+              </a>
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+              >
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-gray-900 border-b border-gray-800"
             >
-              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              <div className="px-6 py-8 space-y-4">
+                {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block text-lg font-medium text-gray-300 hover:text-blue-500"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="about" className="pt-40 pb-20 px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              <span>Open to Full Stack roles worldwide</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+              Full Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Developer</span> <br />
+              & AI Architect
+            </h1>
+            <p className="text-xl text-gray-400 mb-10 max-w-xl leading-relaxed">
+              I build scalable web architectures and intelligent AI solutions that bridge the gap between user experience and technical excellence. 
+              <span className="block mt-4 text-gray-300 font-medium italic">Transforming humanities-driven critical thinking into robust engineering.</span>
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl font-bold transition-all shadow-lg shadow-blue-600/20 flex items-center gap-2 group">
+                Download Resume <Download size={20} className="group-hover:translate-y-1 transition-transform" />
+              </button>
+              <a href="#projects" className="px-8 py-4 bg-gray-800 hover:bg-gray-700 rounded-xl font-bold transition-all flex items-center gap-2">
+                Explore 20+ Projects <ChevronRight size={20} />
+              </a>
+            </div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative hidden lg:block"
+          >
+            <div className="absolute inset-0 bg-blue-500/20 blur-[120px] rounded-full"></div>
+            <div className="relative border border-gray-800 rounded-3xl p-8 bg-gray-900/50 backdrop-blur-sm">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="flex space-x-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div className="h-px flex-1 bg-gray-800"></div>
+              </div>
+              <div className="space-y-4 font-mono text-sm leading-relaxed text-gray-300">
+                <p className="text-blue-400">const developer = &#123;</p>
+                <p className="pl-4">name: 'Sayyed Rabeeh',</p>
+                <p className="pl-4">total_projects: 22,</p>
+                <p className="pl-4">stack: ['Django', 'React', 'OpenCV'],</p>
+                <p className="pl-4">leetcode_solved: 'Consistent Solver',</p>
+                <p className="pl-4 text-blue-400">&#125;</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-24 px-6 bg-gray-900/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical Expertise</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg">Clearly categorized stack focused on modern full-stack requirements.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {Object.entries(skills).map(([category, items], idx) => (
+              <motion.div 
+                key={category}
+                whileHover={{ y: -5 }}
+                className="p-6 rounded-2xl bg-gray-950 border border-gray-800 hover:border-blue-500/50 transition-all group"
+              >
+                <h3 className="text-blue-400 font-bold mb-4 flex items-center gap-2">
+                   {category === 'AI / ML' ? <Cpu size={18} /> : 
+                    category === 'Databases' ? <Database size={18} /> : 
+                    category === 'Frameworks & Libraries' ? <Layers size={18} /> : <Terminal size={18} />}
+                   {category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {items.map(item => (
+                    <span key={item} className="px-2.5 py-1 text-xs font-medium bg-gray-800 rounded-md text-gray-300 border border-gray-700 group-hover:bg-gray-700 transition-colors">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4 italic text-blue-500">Selected Works</h2>
+              <p className="text-gray-400 max-w-xl text-lg">From scalable web architectures to experimental computer vision projects.</p>
+            </div>
+          </div>
+
+          {/* Filter Toggles */}
+          <div className="flex border-b border-gray-800 mb-12">
+            <button 
+              onClick={() => setProjectFilter('major')}
+              className={`px-8 py-4 font-bold text-sm uppercase tracking-widest transition-all ${projectFilter === 'major' ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-300'}`}
+            >
+              Major Projects ({majorProjects.length})
+            </button>
+            <button 
+              onClick={() => setProjectFilter('mini')}
+              className={`px-8 py-4 font-bold text-sm uppercase tracking-widest transition-all ${projectFilter === 'mini' ? 'text-blue-500 border-b-2 border-blue-500' : 'text-gray-500 hover:text-gray-300'}`}
+            >
+              Mini & Experimental ({miniProjects.length})
             </button>
           </div>
 
-          {mobileMenuOpen && (
-            <div className="md:hidden pb-4 bg-gray-800 border-t border-gray-700">
-              {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="block py-3 text-gray-300 hover:text-blue-400 font-medium"
-                  onClick={() => setMobileMenuOpen(false)}
+          {/* Major Projects Grid */}
+          {projectFilter === 'major' && (
+            <div className="grid lg:grid-cols-2 gap-10">
+              {majorProjects.map((project, idx) => (
+                <motion.div 
+                  key={project.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-gray-900/40 border border-gray-800 rounded-3xl p-8 hover:bg-gray-900/60 transition-all group"
                 >
-                  {item}
-                </a>
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-1 tracking-tight text-white">{project.name}</h3>
+                      <p className="text-blue-400 font-medium text-sm">{project.role}</p>
+                    </div>
+                    <div className="flex gap-3">
+                      <a href={project.links.github} target="_blank" rel="noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors text-gray-400 hover:text-white" title="View Source">
+                        <Github size={18} />
+                      </a>
+                      <a href={project.links.live} target="_blank" rel="noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors text-gray-400 hover:text-white" title="Live Demo">
+                        <ExternalLink size={18} />
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div className="bg-blue-500/5 border border-blue-500/10 p-4 rounded-xl">
+                      <p className="text-sm text-gray-300 italic">"{project.problem}"</p>
+                    </div>
+                    <div>
+                      <ul className="space-y-3">
+                        {project.features.map(feature => (
+                          <li key={feature} className="flex items-start gap-3 text-sm text-gray-300">
+                             <div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-blue-500 shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="pt-4 border-t border-gray-800 flex flex-wrap gap-2">
+                      {project.stack.map(tech => (
+                        <span key={tech} className="text-[10px] px-2 py-0.5 rounded bg-gray-800 text-gray-400 border border-gray-700">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 text-green-400 text-sm font-medium">
+                      <Trophy size={16} />
+                      <span>{project.impact}</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+
+          {/* Mini Projects List */}
+          {projectFilter === 'mini' && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {miniProjects.map((project, idx) => (
+                <motion.div 
+                  key={project.name}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  className="bg-gray-900 border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition-all"
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="p-2 bg-gray-800 rounded-lg text-blue-400">
+                      {project.type.includes('Vision') ? <Cpu size={20} /> : <Globe size={20} />}
+                    </div>
+                    <div className="flex gap-2">
+                       <a href={project.github} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white"><Github size={18} /></a>
+                       {project.link && <a href={project.link} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white"><ExternalLink size={18} /></a>}
+                    </div>
+                  </div>
+                  <h4 className="font-bold text-lg mb-1">{project.name}</h4>
+                  <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">{project.type}</p>
+                </motion.div>
               ))}
             </div>
           )}
         </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section id="about" className="bg-gradient-to-br from-gray-800 to-gray-900 py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="text-center lg:text-left">
-              <h1 className="text-5xl md:text-6xl font-extrabold text-gray-100 mb-4">
-                Sayyed Rabeeh
-              </h1>
-              <h2 className="text-3xl md:text-4xl font-light text-blue-400 mb-6">
-                Full Stack Python Developer
-              </h2>
-              <p className="text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
-                Results-driven developer specializing in AI/ML integration, computer vision, and scalable web applications. Available for full-time opportunities.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-10">
-                <button
-                  onClick={handleDownloadResume}
-                  className="px-7 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all duration-200 flex items-center gap-2"
-                >
-                  <Download size={20} /> Resume
-                </button>
-                <a href="#contact" className="px-7 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg shadow-md transition-all duration-200">
-                  Contact
-                </a>
-              </div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              {professionalMetrics.map((m, i) => (
-                <div key={i} className="bg-gray-800 p-6 rounded-xl border border-gray-700 text-center">
-                  <div className="text-4xl font-bold text-blue-400 mb-2">{m.value}</div>
-                  <div className="text-sm text-gray-400 uppercase tracking-wider">{m.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-12">
-            <h3 className="text-xl font-bold text-gray-100 mb-4 text-center lg:text-left">Core Competencies</h3>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start text-sm font-medium text-gray-300">
-              {coreCompetencies.map((skill, i) => (
-                <span key={i}>
-                  {skill}
-                  {i < coreCompetencies.length - 1 && <span className="mx-2 text-gray-500">â€¢</span>}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* Experience */}
-      <section id="experience" className="py-20 px-6 bg-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-100 mb-12 text-center border-b-4 border-blue-500 inline-block pb-2 mx-auto">
-            Experience
-          </h2>
+      {/* Experience Section */}
+      <section id="experience" className="py-24 px-6 bg-gray-950">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Path to Excellence</h2>
           <div className="space-y-12">
-            {experience.map((exp, i) => (
-              <div key={i} className="bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700">
-                <div className="flex flex-col md:flex-row justify-between mb-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-100 mb-2">{exp.title}</h3>
-                    <p className="text-blue-400 font-semibold">{exp.company} â€¢ {exp.location}</p>
-                  </div>
-                  <div className="text-gray-400 font-medium mt-2 md:mt-0">{exp.period}</div>
+            {experience.map((exp, idx) => (
+              <motion.div 
+                key={exp.title}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative pl-8 border-l-2 border-gray-800 group"
+              >
+                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-2 border-gray-950 group-hover:scale-125 transition-transform shadow-[0_0_10px_rgba(37,99,235,0.5)]"></div>
+                <div className="mb-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <h3 className="text-xl font-bold text-white">{exp.title}</h3>
+                  <span className="text-sm font-bold text-gray-500 bg-gray-900 px-3 py-1 rounded-full border border-gray-800">{exp.period}</span>
                 </div>
-                <ul className="grid md:grid-cols-2 gap-4 text-gray-300">
-                  {exp.responsibilities.map((r, j) => (
-                    <li key={j} className="flex items-start text-base">
-                      <span className="text-blue-400 mr-3 mt-1 flex-shrink-0">â€¢</span>
-                      <span>{r}</span>
+                <p className="text-sm text-blue-400 font-medium mb-4">{exp.location}</p>
+                <ul className="space-y-3">
+                  {exp.highlights.map(h => (
+                    <li key={h} className="text-gray-400 leading-relaxed text-sm flex gap-3">
+                      <span className="text-blue-500">•</span>
+                      {h}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Projects */}
-      <section id="projects" className="py-20 px-6 bg-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-100 mb-12 text-center border-b-4 border-blue-500 inline-block pb-2 mx-auto">
-            Projects
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((p, i) => (
-              <div key={i} className="bg-gray-800 rounded-xl shadow-lg border border-gray-700 overflow-hidden">
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-100 mb-2">{p.title}</h3>
-                  <div className="flex items-center gap-3 mb-4 text-sm text-gray-400">
-                    <span className="text-blue-400">{p.role}</span>
-                    <span>â€¢</span>
-                    <span>{p.duration}</span>
-                  </div>
-                  <p className="text-gray-300 mb-4 text-sm">{p.description}</p>
-                  <div className="mb-4">
-                    <h4 className="text-sm font-bold text-gray-400 uppercase mb-2">Key Achievements</h4>
-                    <ul className="space-y-1 text-gray-300 text-xs">
-                      {p.achievements.map((a, j) => (
-                        <li key={j} className="flex items-start">
-                          <span className="text-blue-400 mr-2 â€¢">â€¢</span>
-                          <span>{a}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="mb-4">
-                    <h4 className="text-sm font-bold text-gray-400 uppercase mb-2">Technologies</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {p.technologies.map((t, j) => (
-                        <span key={j} className="px-2 py-1 bg-gray-700 text-gray-300 text-xs rounded-md border border-gray-600">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-medium"
-                  >
-                    <Github size={16} /> View on GitHub
-                  </a>
-                </div>
-              </div>
-            ))}
+      {/* About Section */}
+      <section className="py-24 px-6 bg-gray-900/30">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="w-20 h-20 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-3xl mx-auto mb-10 rotate-3 flex items-center justify-center text-3xl shadow-xl shadow-blue-500/20">
+            <User size={40} className="-rotate-3" />
           </div>
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section id="skills" className="py-20 px-6 bg-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-100 mb-12 text-center border-b-4 border-blue-500 inline-block pb-2 mx-auto">
-            Skills
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {Object.entries(technicalSkills).slice(0, 3).map(([cat, skills], i) => (
-              <div key={i} className="bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700">
-                <h3 className="text-lg font-bold text-gray-100 mb-4 text-center">{cat}</h3>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {skills.map((s, j) => (
-                    <span key={j} className="px-3 py-1 bg-gray-800 text-gray-300 text-sm rounded-full border border-gray-600">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 mt-8">
-            {Object.entries(technicalSkills).slice(3).map(([cat, skills], i) => (
-              <div key={i} className="bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700">
-                <h3 className="text-lg font-bold text-gray-100 mb-4 text-center">{cat}</h3>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {skills.map((s, j) => (
-                    <span key={j} className="px-3 py-1 bg-gray-800 text-gray-300 text-sm rounded-full border border-gray-600">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="py-20 px-6 bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-100 mb-12 border-b-4 border-blue-500 inline-block pb-2">
-            Get in Touch
-          </h2>
-          <p className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto">
-            I'm currently available for full-time Full Stack Python Developer roles. Open to remote work and relocation.
+          <h2 className="text-3xl font-bold mb-6">The Mindset</h2>
+          <p className="text-xl text-gray-400 leading-relaxed">
+            Transitioning from a humanities background equipped me with a unique <strong>critical thinking</strong> lens toward software architecture. 
+            I don't just write code; I design systems that solve human problems. My core strength lies in <strong>rapid adaptability</strong>—mastering 10+ 
+            technologies and building 20+ applications in under 1.5 years.
           </p>
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <Mail className="mx-auto mb-4 text-blue-400" size={32} />
-              <h3 className="font-bold text-gray-100 mb-2 text-sm uppercase">Email</h3>
-              <a href="mailto:sayyedrabeeh240@gmail.com" className="text-blue-400 hover:text-blue-300 text-sm">
-                sayyedrabeeh240@gmail.com
-              </a>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section id="contact" className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-[3rem] p-12 md:p-20 relative overflow-hidden text-center">
+            <div className="absolute top-0 right-0 p-10 opacity-10">
+              <Award size={200} />
             </div>
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <Phone className="mx-auto mb-4 text-blue-400" size={32} />
-              <h3 className="font-bold text-gray-100 mb-2 text-sm uppercase">Phone</h3>
-              <a href="tel:+919207286895" className="text-blue-400 hover:text-blue-300 text-sm">
-                +91 9207286895
+            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8">Ready to Scale Your Team?</h2>
+            <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
+              I'm currently looking for Full Stack Developer roles where I can contribute to high-impact projects. Let's discuss how I can help your team.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <a href="mailto:sayyedrabeeh240@gmail.com" className="px-10 py-5 bg-white text-blue-600 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all flex items-center gap-3">
+                <Send size={24} /> Get in Touch
               </a>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-              <MapPin className="mx-auto mb-4 text-blue-400" size={32} />
-              <h3 className="font-bold text-gray-100 mb-2 text-sm uppercase">Location</h3>
-              <p className="text-gray-300 text-sm">Malappuram, Kerala, India</p>
+              <div className="flex items-center gap-4">
+                <a href="https://github.com/sayyedrabeeh" target="_blank" rel="noreferrer" className="p-4 bg-white/10 text-white rounded-full hover:bg-white/20 transition-all">
+                  <Github size={28} />
+                </a>
+                <a href="https://linkedin.com/in/sayyed-rabeeh" target="_blank" rel="noreferrer" className="p-4 bg-white/10 text-white rounded-full hover:bg-white/20 transition-all">
+                  <Linkedin size={28} />
+                </a>
+              </div>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            <a
-              href="https://github.com/sayyedrabeeh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg shadow-md transition-all duration-200 flex items-center gap-2"
-            >
-              <Github size={20} /> GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/sayyedrabeeh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all duration-200 flex items-center gap-2"
-            >
-              <Linkedin size={20} /> LinkedIn
-            </a>
+          
+          <div className="mt-20 grid md:grid-cols-3 gap-8 text-center pt-10 border-t border-gray-900">
+             <div>
+               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Primary Email</p>
+               <p className="font-medium text-gray-300">sayyedrabeeh240@gmail.com</p>
+             </div>
+             <div>
+               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Direct Line</p>
+               <p className="font-medium text-gray-300">+91 9207286895</p>
+             </div>
+             <div>
+               <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Base Location</p>
+               <p className="font-medium text-gray-300">Malappuram, Kerala, India</p>
+             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 border-t border-gray-700 py-8 text-center">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-sm text-gray-400">Â© 2025 Sayyed Rabeeh. All Rights Reserved.</p>
-        </div>
+      <footer className="py-12 border-t border-gray-900 text-center">
+        <p className="text-gray-500 text-sm font-medium">
+          &copy; {new Date().getFullYear()} Sayyed Rabeeh. Built with React, Tailwind, and a Passion for Engineering.
+        </p>
       </footer>
     </div>
   );

@@ -6,132 +6,116 @@ export default function Portfolio() {
 
   const coreCompetencies = [
     'Python', 'Django', 'Django REST Framework', 'React.js', 'PostgreSQL',
-    'MongoDB', 'Redis', 'Machine Learning', 'Computer Vision', 'AWS'
+    'Redis', 'Google Gemini API', 'OpenCV', 'MediaPipe', 'WebSockets'
   ];
 
   const technicalSkills = {
-    'Backend Development': ['Python', 'Django', 'Django REST Framework', 'Flask', 'FastAPI', 'Node.js'],
-    'Frontend Development': ['React.js', 'JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS'],
-    'Database Management': ['PostgreSQL', 'MongoDB', 'MySQL', 'SQLite', 'Redis'],
-    'AI & Machine Learning': ['OpenCV', 'TensorFlow', 'Scikit-learn', 'Computer Vision', 'NLP', 'MediaPipe'],
-    'DevOps & Cloud': ['AWS', 'Docker', 'Git', 'GitHub', 'Linux', 'CI/CD'],
-    'Development Tools': ['Postman', 'VS Code', 'Jupyter', 'Figma', 'Agile/Scrum']
+    'Backend Development': ['Python', 'Django', 'Django REST Framework', 'PostgreSQL', 'Redis', 'Celery'],
+    'Frontend Development': ['React.js', 'JavaScript (ES6+)', 'Redux', 'Tailwind CSS', 'Bootstrap', 'Three.js'],
+    'AI & Computer Vision': ['Google Gemini API', 'OpenCV', 'MediaPipe', 'gTTS', 'PyMuPDF'],
+    'DevOps & Tools': ['Git', 'GitHub', 'AWS', 'Render', 'Cloudinary', 'Firebase', 'VS Code'],
+    'Backend Infrastructure': ['WebSockets', 'Django Channels', 'JWT Authentication', 'Razorpay Integration'],
+    'Additional Skills': ['Framer Motion', 'Matter.js', 'Figma', 'ReportLab', 'Problem Solving']
   };
 
   const professionalMetrics = [
-    { value: '10+', label: 'Applications Developed' },
-    { value: '5+', label: 'API Integrations' },
-    { value: '95%', label: 'Code Quality Score' },
-    { value: '100%', label: 'On-Time Delivery' }
+    { value: '5+', label: 'Full Stack Projects' },
+    { value: '1.5+', label: 'Years Coding' },
+    { value: '10+', label: 'Technologies Mastered' },
+    { value: '100%', label: 'Self-Taught Drive' }
   ];
 
   const projects = [
     {
-      title: 'AI Sketch Studio',
+      title: 'Interactive 3D Portfolio with AI Assistant',
       role: 'Full Stack Developer',
       duration: '2024',
-      description: 'Developed an enterprise-grade image transformation platform featuring 14 distinct artistic rendering algorithms with real-time computer vision processing.',
+      description: 'Built an interactive 3D portfolio experience using React and Three.js with smooth animations, cinematic transitions, and an AI-powered assistant.',
       achievements: [
-        'Architected scalable Django REST API handling 1000+ concurrent requests',
-        'Implemented 14 real-time image processing algorithms using OpenCV',
-        'Optimized processing pipeline reducing latency by 40%',
-        'Designed responsive UI with Tailwind CSS achieving 95+ Lighthouse score'
+        'Created immersive 3D experience with Three.js and smooth animations',
+        'Integrated AI assistant using Google Gemini for context-aware responses',
+        'Designed physics-based skills section with Matter.js for interactive drag-and-drop',
+        'Optimized for consistent 60fps performance with cloud-based media delivery'
       ],
-      technologies: ['Django', 'OpenCV', 'Python', 'REST API', 'PostgreSQL', 'Tailwind CSS'],
-      github: 'https://github.com/sayyedrabeeh/artist'
+      technologies: ['React', 'Three.js', 'Django REST', 'PostgreSQL', 'Framer Motion', 'Matter.js', 'Gemini AI'],
+      github: 'https://github.com/sayyedrabeeh'
     },
     {
       title: 'ResuMatch - AI Resume Analyzer',
       role: 'Full Stack Developer',
       duration: '2024',
-      description: 'Built comprehensive AI-powered recruitment platform utilizing NLP for resume parsing, ATS optimization scoring, and intelligent job matching.',
+      description: 'Built an AI-powered resume processing platform with secure multi-resume uploads, automated PDF parsing, and intelligent job matching capabilities.',
       achievements: [
-        'Developed full-stack application using Django backend and React frontend',
-        'Integrated NLP models achieving 90%+ accuracy in keyword extraction',
-        'Implemented ATS scoring algorithm processing 500+ resumes',
-        'Designed normalized PostgreSQL schema with optimized indexing'
+        'Developed secure platform with JWT authentication and PostgreSQL-backed profile management',
+        'Implemented automated PDF parsing pipeline using PyMuPDF for structured data extraction',
+        'Improved parsing reliability by handling inconsistent resume formats and normalizing social links',
+        'Designed production-ready APIs for profile management and secure resume handling'
       ],
-      technologies: ['Django', 'React', 'PostgreSQL', 'NLP', 'Machine Learning', 'Redux'],
+      technologies: ['Django REST Framework', 'React', 'PostgreSQL', 'PyMuPDF', 'ReportLab', 'Tailwind CSS', 'JWT'],
       github: 'https://github.com/sayyedrabeeh/resume-ai-'
     },
     {
-      title: 'Jarvis - Virtual Assistant Platform',
-      role: 'Backend Developer',
-      duration: '2024',
-      description: 'Created sophisticated web-based virtual assistant with multi-service API integration, voice recognition, and real-time query processing.',
-      achievements: [
-        'Architected Django backend integrating Spotify, YouTube, and Wikipedia APIs',
-        'Implemented voice recognition with 85%+ accuracy rate',
-        'Developed caching mechanism reducing API response time by 60%',
-        'Built real-time processing system handling 100+ concurrent users'
-      ],
-      technologies: ['Django', 'Python', 'REST APIs', 'Redis', 'JavaScript', 'Web Scraping'],
-      github: 'https://github.com/sayyedrabeeh/jarvis-ai'
-    },
-    {
-      title: 'Virtual Painter',
-      role: 'Computer Vision Developer',
-      duration: '2024',
-      description: 'Engineered advanced gesture-based drawing application utilizing computer vision algorithms for real-time hand tracking at 60 FPS.',
-      achievements: [
-        'Implemented real-time hand gesture recognition using MediaPipe',
-        'Optimized CV pipeline achieving consistent 60 FPS performance',
-        'Developed intuitive gesture mapping with 95%+ recognition accuracy',
-        'Created efficient canvas rendering engine with minimal latency'
-      ],
-      technologies: ['Python', 'OpenCV', 'MediaPipe', 'Computer Vision', 'NumPy'],
-      github: 'https://github.com/sayyedrabeeh/virtual-painter'
-    },
-    {
-      title: 'TaleTailor - Content Generation Platform',
+      title: 'TaleTailor - AI Story Generation Platform',
       role: 'Full Stack Developer',
       duration: '2024',
-      description: 'Built AI-powered storytelling platform with automated content generation, authentication system, and social networking features.',
+      description: 'Developed an AI-powered storytelling platform with real-time collaborative editing, emotion-driven themes, and multi-language support.',
       achievements: [
-        'Developed scalable full-stack application with Django and React',
-        'Integrated AI models for automated story generation',
-        'Implemented JWT-based authentication with role-based access control',
-        'Optimized database queries reducing page load time by 50%'
+        'Built story generation using Google Gemini API for long-form narratives (300-8,000 words)',
+        'Implemented real-time collaboration with Django Channels and WebSockets for multi-user editing',
+        'Designed emotion-driven theming system with dynamic UI and synchronized background audio',
+        'Integrated text-to-speech narration, PDF exports, and cloud-based media delivery'
       ],
-      technologies: ['Django', 'React', 'PostgreSQL', 'AI/ML', 'JWT', 'AWS S3'],
+      technologies: ['Django', 'PostgreSQL', 'Django Channels', 'Redis', 'Celery', 'WebSockets', 'gTTS', 'Cloudinary'],
       github: 'https://github.com/sayyedrabeeh/taletailor'
+    },
+    {
+      title: 'NanoRide - E-Commerce Platform',
+      role: 'Full Stack Developer',
+      duration: '2024',
+      description: 'Built a complete e-commerce platform for miniature cars with multi-variant products, payment integration, and comprehensive admin dashboard.',
+      achievements: [
+        'Developed full-stack platform with multi-variant products and advanced filtering',
+        'Integrated Razorpay payments with order tracking, refunds, and wallet system',
+        'Built admin dashboard with product management, coupon systems, and analytics',
+        'Implemented secure authentication, cart management, and responsive checkout workflows'
+      ],
+      technologies: ['Django', 'PostgreSQL', 'Razorpay', 'JavaScript', 'Cloudinary', 'Redis'],
+      github: 'https://github.com/sayyedrabeeh'
     }
   ];
 
-  const experience = [
+  const Education = [
     {
-      title: 'Full Stack Developer',
-      company: 'Freelance / Contract',
-      location: 'Remote',
-      period: 'January 2024 - Present',
+      title: 'Full Stack Development Training',
+      company: 'Brototype',
+      location: 'Calicut, Kerala',
+      period: 'July 2024 - Present',
       responsibilities: [
-        'Design and develop custom web applications using Django, React, and modern JavaScript frameworks',
-        'Implement AI/ML solutions including computer vision and NLP features for client projects',
-        'Build and maintain RESTful APIs with comprehensive documentation using OpenAPI standards',
-        'Deploy and manage applications on AWS infrastructure with Docker containerization',
-        'Conduct code reviews and implement CI/CD pipelines for automated testing and deployment',
-        'Collaborate with clients to gather requirements and deliver scalable, maintainable solutions'
+        'Completed intensive 1000+ hour full-stack development program covering Python, Django, and React',
+        'Built 5+ production-ready full-stack applications with real-world use cases',
+        'Mastered data structures, algorithms, and software design patterns through hands-on projects',
+        'Gained expertise in AI/ML integrations, computer vision, and modern web technologies',
+        'Developed strong foundation in database design, API development, and cloud deployment',
+        'Actively solving problems on LeetCode to strengthen algorithmic thinking'
       ]
     },
     {
-      title: 'Full Stack Development Bootcamp',
-      company: 'Brototype',
+      title: 'Higher Secondary Education',
+      company: 'DHSS Thootha',
       location: 'Kerala, India',
-      period: 'May 2023 - December 2023',
+      period: 'Completed 2023',
       responsibilities: [
-        'Completed intensive 1000+ hour full-stack development program covering Python, Django, and React',
-        'Developed 10+ production-ready applications following industry best practices',
-        'Mastered data structures, algorithms, and software design patterns through hands-on projects',
-        'Gained expertise in test-driven development, Git workflows, and Agile methodologies',
-        'Participated in code reviews and pair programming sessions with peers',
-        'Built strong foundation in database design, API development, and cloud deployment'
+        'Completed Humanities stream, developing strong critical thinking and communication skills',
+        'Cultivated problem-solving abilities and analytical mindset applicable to software development',
+        'Built foundation in research, writing, and systematic thinking',
+        'Transitioned from humanities to technology, demonstrating adaptability and self-learning ability'
       ]
     }
   ];
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Make sure resume.pdf is in public folder
+    link.href = '/resume.pdf';
     link.download = 'Sayyed_Rabeeh_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -150,7 +134,7 @@ export default function Portfolio() {
             </div>
 
             <div className="hidden md:flex space-x-10">
-              {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item) => (
+              {['About', 'Education', 'Projects', 'Skills', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -171,7 +155,7 @@ export default function Portfolio() {
 
           {mobileMenuOpen && (
             <div className="md:hidden pb-4 bg-gray-800 border-t border-gray-700">
-              {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item) => (
+              {['About', 'Education', 'Projects', 'Skills', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -198,7 +182,7 @@ export default function Portfolio() {
                 Full Stack Python Developer
               </h2>
               <p className="text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
-                Results-driven developer specializing in AI/ML integration, computer vision, and scalable web applications. Available for full-time opportunities.
+                Self-taught developer with a humanities background bringing critical thinking to code. Specializing in Python/Django, React, AI integrations, and computer vision. Passionate about building innovative full-stack solutions.
               </p>
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-10">
                 <button
@@ -235,14 +219,14 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Experience */}
-      <section id="experience" className="py-20 px-6 bg-gray-800">
+      {/* Education */}
+      <section id="Education" className="py-20 px-6 bg-gray-800">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-100 mb-12 text-center border-b-4 border-blue-500 inline-block pb-2 mx-auto">
-            Experience
+            Education
           </h2>
           <div className="space-y-12">
-            {experience.map((exp, i) => (
+            {Education.map((exp, i) => (
               <div key={i} className="bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700">
                 <div className="flex flex-col md:flex-row justify-between mb-6">
                   <div>
@@ -271,7 +255,7 @@ export default function Portfolio() {
           <h2 className="text-3xl font-bold text-gray-100 mb-12 text-center border-b-4 border-blue-500 inline-block pb-2 mx-auto">
             Projects
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {projects.map((p, i) => (
               <div key={i} className="bg-gray-800 rounded-xl shadow-lg border border-gray-700 overflow-hidden">
                 <div className="p-6">
@@ -287,7 +271,7 @@ export default function Portfolio() {
                     <ul className="space-y-1 text-gray-300 text-xs">
                       {p.achievements.map((a, j) => (
                         <li key={j} className="flex items-start">
-                          <span className="text-blue-400 mr-2 •">•</span>
+                          <span className="text-blue-400 mr-2">•</span>
                           <span>{a}</span>
                         </li>
                       ))}
@@ -362,7 +346,7 @@ export default function Portfolio() {
             Get in Touch
           </h2>
           <p className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto">
-            I'm currently available for full-time Full Stack Python Developer roles. Open to remote work and relocation.
+            I'm actively seeking full-time Full Stack Python Developer roles. Open to remote work and relocation opportunities.
           </p>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="bg-gray-800 p-6 rounded-xl border border-gray-700">
@@ -395,12 +379,23 @@ export default function Portfolio() {
               <Github size={20} /> GitHub
             </a>
             <a
-              href="https://linkedin.com/in/sayyedrabeeh"
+              href="https://linkedin.com/in/sayyed-rabeeh"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-all duration-200 flex items-center gap-2"
             >
               <Linkedin size={20} /> LinkedIn
+            </a>
+            <a
+              href="https://leetcode.com/u/sayyed-rabeeh/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-md transition-all duration-200 flex items-center gap-2"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+              </svg>
+              LeetCode
             </a>
           </div>
         </div>
